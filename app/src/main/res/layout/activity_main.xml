@@ -7,13 +7,14 @@
     android:layout_gravity="center"
     android:orientation="horizontal"
     android:columnCount="4"
-    android:rowCount="8"
+    android:rowCount="5"
     android:layout_marginBottom="8dp"
     tools:context=".MainActivity"
     >
 
     <EditText
         android:id="@+id/text"
+        android:layout_width="wrap_content"
         android:layout_height="93dp"
         android:layout_columnSpan="4"
         android:layout_rowSpan="3"
@@ -24,7 +25,6 @@
         android:layout_marginBottom="20dp"
         android:gravity="bottom|right"
         android:inputType="numberDecimal"
-        android:text="0"
         android:textSize="55sp"
         android:background="#fff"
         android:focusable="false"/>
@@ -125,10 +125,18 @@
         android:id="@+id/btn_equ"
         android:layout_width="77dp"
         android:layout_gravity="fill"
-        android:layout_rowSpan="2"
+        android:layout_rowSpan="1"
         android:text="="
         android:background="@drawable/button_style"
         android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_PandM"
+        android:text="+/-"
+        android:background="@drawable/button_style"
+        android:textSize="20sp"/>
+
+
 
 
     <Button
@@ -155,37 +163,50 @@
 
 
 
-    <!--<Button
+
+
+    <Button
         android:id="@+id/btn_leftbra"
         android:text="("
+        android:layout_columnSpan="0"
+        android:layout_rowSpan="0"
         android:textSize="20sp" />
 
     <Button
         android:id="@+id/btn_rightbra"
         android:text=")"
+        android:layout_columnSpan="0"
+        android:layout_rowSpan="0"
         android:textSize="20sp" />
 
-    <Button
+    <!--<Button
         android:id="@+id/btn_PandM"
         android:text="+/-"
-        android:textSize="20sp"/>
+        android:textSize="20sp"/>-->
 
     <Button
         android:id="@+id/btn_squ2"
         android:text="√￣"
+        android:layout_columnSpan="0"
+        android:layout_rowSpan="0"
         android:textSize="20sp" />
 
     <Button
         android:id="@+id/btn_sin"
         android:text="sin"
         android:textAllCaps="false"
+        android:layout_columnSpan="0"
+        android:layout_rowSpan="0"
         android:textSize="20sp"/>
 
     <Button
         android:id="@+id/btn_cos"
         android:text="cos"
         android:textAllCaps="false"
-        android:textSize="20sp" />-->
+        android:layout_columnSpan="0"
+        android:layout_rowSpan="0"
+        android:textSize="20sp" />
 
 
 </GridLayout>
+

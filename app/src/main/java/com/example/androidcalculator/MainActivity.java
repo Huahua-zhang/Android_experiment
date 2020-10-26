@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_del = (Button) findViewById(R.id.btn_del);
         btn_del.setOnClickListener(this);
 
-        /*btn_leftbra = (Button) findViewById(R.id.btn_leftbra);
+        btn_leftbra = (Button) findViewById(R.id.btn_leftbra);
         btn_leftbra.setOnClickListener(this);
 
         btn_rightbra = (Button) findViewById(R.id.btn_rightbra);
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_sin.setOnClickListener(this);
 
         btn_cos = (Button) findViewById(R.id.btn_cos);
-        btn_cos.setOnClickListener(this);*/
+        btn_cos.setOnClickListener(this);
 
         btn_div = (Button) findViewById(R.id.btn_div);
         btn_div.setOnClickListener(this);
@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_p.setOnClickListener(this);
 
         text=(EditText) findViewById(R.id.text);
+        text.setSingleLine(false);
     }
 
     @Override
@@ -259,7 +260,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     text.setText(str);
                 }
                 break;
-            /*case R.id.btn_leftbra:
+            case R.id.btn_leftbra:
                 if (str.length()==1){
                     str="(";
                 }
@@ -279,7 +280,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     str += ")";
                 }
                 text.setText(str);
-                break;*/
+                break;
             case R.id.btn_equ:
                 if(str.charAt(str.length()-1)=='+'||str.charAt(str.length()-1)=='-'||str.charAt(str.length()-1)=='×'||str.charAt(str.length()-1)=='÷'){
                     Toast.makeText(MainActivity.this,"Please complete the formula!",Toast.LENGTH_SHORT).show();
@@ -300,7 +301,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
                 break;
-            /*case R.id.btn_squ2:
+            case R.id.btn_squ2:
                 if(str.charAt(0)=='-'){
                     Toast.makeText(MainActivity.this,"Negative numbers cannot be squared!",Toast.LENGTH_SHORT).show();
                     text.setText("0");
@@ -317,7 +318,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     x2 = x2.replaceAll("[.]$", "");//如最后一位是.则去掉
                     text.setText(x2);
                 }
-                break;*/
+                break;
             case R.id.btn_percent:
                 double per=Double.parseDouble(str);
                 per=per/100;
@@ -326,7 +327,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 per1 = per1.replaceAll("[.]$", "");//如最后一位是.则去掉
                 text.setText(per1);
                 break;
-            /*case R.id.btn_sin:
+            case R.id.btn_sin:
                 double sinn=Double.parseDouble(str);
                 sinn=Math.toRadians(sinn);
                 sinn=Math.sin(sinn);
@@ -357,7 +358,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     text.setText(str.substring(1,str.length()));
                 else
                     text.setText(str);
-                break;*/
+                break;
             default:
                 break;
         }
@@ -452,7 +453,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             else{
                 if(ch!=' '){
                     Double y=stack.pop();
-                    Double x=stack.pop();
+                    Double x;
+                    if (stack.isEmpty()){
+                        x=0.0;
+                    }
+                    else{
+                        x=stack.pop();
+                    }
                     switch(ch){
                         case'+':
                             value=x+y;
